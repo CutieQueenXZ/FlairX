@@ -1,1 +1,3 @@
-praw
+praw==7.6.0          # Python Reddit API Wrapper
+requests==2.25.1     # If you need HTTP requests
+python-dotenv==0.17  # For environment variable handling
