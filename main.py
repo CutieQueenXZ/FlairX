@@ -4,8 +4,9 @@ from core.command_handler import handle_comment
 import os
 
 def main():
-    subreddit = reddit.subreddit(os.getenv("SUBREDDIT"))
-    print(f"FlairX is active in r/{os.getenv('SUBREDDIT')}...")
+    subreddits = os.getenv("SUBREDDITS").split(",")
+    subreddit = reddit.subreddit("+".join([s.strip() for s in subreddits]))
+    print(f"FlairX is active in: {', '.join(subreddits)}")
 
     for comment in subreddit.stream.comments(skip_existing=True):
         try:
