@@ -1,7 +1,8 @@
 import os
 import praw
 from dotenv import load_dotenv
-from commands.fun import handle_fun_command import handle_utility_command
+from commands.fun import handle_fun_command 
+from commands.fun import handle_utility_command
 
 load_dotenv()
 
