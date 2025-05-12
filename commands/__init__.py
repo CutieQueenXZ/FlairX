@@ -1,7 +1,7 @@
 from . import help
 
 COMMAND_MODULES = [help]
-def handle_help_command(comment):
+def handle_commands_command(comment):
     body = comment.body.lower()
     for module in COMMAND_MODULES:
         if hasattr(module, "handle"):
