@@ -2,8 +2,7 @@ import os
 import time
 from dotenv import load_dotenv
 from core.reddit_client import reddit, can_post
-from core.commands import handle_fun_command
-
+from commands.fun import handle_fun_command
 load_dotenv()
 
 def main():
