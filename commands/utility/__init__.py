@@ -1,7 +1,7 @@
 from . import website, help
 
 COMMAND_MODULES = [website help]
-def handle_utility_command(comment):
+def handle_commands(comment):
     body = comment.body.lower()
     for module in COMMAND_MODULES:
         if hasattr(module, "handle"):
