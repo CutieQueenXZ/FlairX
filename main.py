@@ -1,22 +1,34 @@
-from core.reddit_client import reddit, can_post  # Make sure can_post is imported
-from core.command_handler import handle_comment
 import os
+import time
+from dotenv import load_dotenv
+from core.reddit_client import reddit, can_post
+from core.commands import handle_fun_command
+
+load_dotenv()
 
 def main():
     subreddits = os.getenv("SUBREDDITS").split(",")
-    subreddit = reddit.subreddit("+".join([s.strip() for s in subreddits]))
-    print(f"FlairX is active in: {', '.join(subreddits)}")
+    print(f"Monitoring subreddits: {subreddits}")
 
-    for comment in subreddit.stream.comments(skip_existing=True):
-        try:
-            if not can_post(comment.subreddit):
-                print(f"[!] Skipping r/{comment.subreddit} — No permission to post.")
-                continue
+    for sub in subreddits:
+        subreddit = reddit.subreddit(sub.strip())
 
-            handle_comment(comment)
+        print(f"Starting stream in r/{sub.strip()}...")
+        for comment in subreddit.stream.comments(skip_existing=True):
+            try:
+                # Basic filtering
+                if comment.author == reddit.user.me():
+                    continue  # Skip self
+                if not can_post(comment.subreddit):
+                    continue  # Custom check if the bot is allowed
 
-        except Exception as e:
-            print(f"Error: {e}")
+                # Handle fun commands
+                if comment.body.strip().startswith("!"):
+                    handle_fun_command(comment)
+
+            except Exception as e:
+                print(f"Error processing comment: {e}")
+                time.sleep(10)
 
 if __name__ == "__main__":
     main()
