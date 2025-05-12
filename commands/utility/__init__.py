@@ -1,5 +1,5 @@
-from . import joke, fact, hug, coinflip, eightball, meme, help, website, rizz
+from . import help, website
 
 def handle_commands(comment):
-    for module in [joke, fact, hug, coinflip, eightball, meme, help, website, rizz]:
+    for module in [help, website]:
         module.handle(comment)
