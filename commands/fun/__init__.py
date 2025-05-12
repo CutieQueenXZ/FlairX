@@ -2,7 +2,7 @@ from . import joke, fact, hug, coinflip, eightball, meme, rizz
 
 COMMAND_MODULES = [joke, fact, hug, coinflip, eightball, meme, rizz]
 
-def handle_fun_command(comment):
+def handle_commands(comment):
     body = comment.body.lower()
     for module in COMMAND_MODULES:
         if hasattr(module, "handle"):
