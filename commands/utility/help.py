@@ -11,7 +11,8 @@ def handle(comment):
                           "- `eightball`\n"
                           "- `hug`\n"
                           "- `website <url>`\n"
-                          "- `rizz <style> <@user>`")
+                          "- `rizz <style> <@user>`\n"
+                          "add first using !, like example, !joke`")
             print("Successfully replied to !help")
         except Exception as e:
             print(f"Error replying: {e}")
