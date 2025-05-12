@@ -1,6 +1,6 @@
-from . import joke, fact, hug, coinflip, eightball, meme, rizz, catfacts
+from . import joke, fact, hug, coinflip, eightball, meme, rizz, catfacts, dog
 
-COMMAND_MODULES = [joke, fact, hug, coinflip, eightball, meme, rizz, catfacts]
+COMMAND_MODULES = [joke, fact, hug, coinflip, eightball, meme, rizz, catfacts, dog]
 
 def handle_commands(comment):
     body = comment.body.lower()
