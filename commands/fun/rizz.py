@@ -45,7 +45,7 @@ RIZZ_STYLES = {
         "Is your name melody? Because you're stuck in my head.",
         "I've been told I have a great personality... want to see it in person?",
         "Are you a compass? Because I feel lost without your direction.",
-        "If you were a book, you'd be one I couldn't put down.",
+        "If you were a book, you'd be one I couldn't put you down.",
         "You're like a magnet, I'm so attracted to you.",
         "Do you believe in magic? Because when I look at you, everything else disappears.",
         "I'm not a genie, but I can make your wishes come true... starting with a date.",
@@ -153,7 +153,7 @@ RIZZ_STYLES = {
         "You're like a warm blanket on a cold night.",
         "If you were a season, you'd be springtime – full of life and beauty.",
         "Are you a good listener? Because I have a lot to say about you.",
-        "Do you like books? Because I want to write our story.",
+        "Do you like books? Because I want to write our story. {User}",
         "You're like a ray of sunshine on a cloudy day.",
         "If you were a place, you'd be my favorite destination."
     ]
@@ -168,6 +168,9 @@ def handle(comment):
             target = parts[2]
             rizz_lines = RIZZ_STYLES.get(style, RIZZ_STYLES["normal"])
             rizz = random.choice(rizz_lines)
-            comment.reply(f"{target}, {rizz}")
+            reply_text = f"{target}, {rizz}"
+            if "{User}" in rizz:
+                reply_text = reply_text.replace("{User}", f"u/{comment.author.name}")
+            comment.reply(reply_text)
         else:
             comment.reply("Usage: `!rizz [spicy/nice/normal] [username]`")
