@@ -1,4 +1,4 @@
-from commands.fun import joke, rizz, fact, coinflip, eightball, hug, meme
+from commands.fun import joke, rizz, fact, coinflip, eightball, hug, meme, catfacts
 from commands.utility import help, website
 
 def handle_commands(comment):
