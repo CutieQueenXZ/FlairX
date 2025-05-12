@@ -1,11 +1,59 @@
 import random
 
 jokes = [
-    "Why did the bot go to school? To improve its 'syntax'!",
-    "Why don’t skeletons fight each other? They don’t have the guts.",
-    "404 joke not found!"
+    "Why don't skeletons fight each other? They don't have the guts.",
+    "I'm reading a book about anti-gravity. It's impossible to put down!",
+    "What did one wall say to the other? I'll meet you at the corner.",
+    "Why did the bicycle fall over? Because it was two tired.",
+    "What do you call a fish with no eyes? Fsh!",
+    "Why did the scarecrow win an award? Because he was outstanding in his field!",
+    "What do you call a lazy kangaroo? Pouch potato!",
+    "Why did the golfer wear two pairs of pants? In case he got a hole-in-one!",
+    "What do you call a fake noodle? An impasta!",
+    "Why did the cookie go to the doctor? Because it felt crummy.",
+    "What musical instrument is found in the bathroom? A tuba toothpaste.",
+    "Why did the picture go to jail? Because it was framed!",
+    "What do you call a sad strawberry? A blueberry.",
+    "Why did the tomato turn red? Because it saw the salad dressing!",
+    "What do you call a cheese that isn't yours? Nacho cheese!",
+    "Why did the math book look sad? Because it had too many problems.",
+    "What do you call a bear with no teeth? A gummy bear!",
+    "Why did the banana go to the hospital? Because it wasn't peeling well.",
+    "What do you call a penguin in the desert? Lost!",
+    "Why did the invisible man turn down the job offer? He couldn't see himself doing it.",
+    "What's brown and sticky? A stick!",
+    "Why did the coffee file a police report? It got mugged!",
+    "What do you call a boomerang that won't come back? A stick.",
+    "Why did the barber lose his job? He kept losing his hair!",
+    "What's the best thing about Switzerland? I don't know, but the flag is a big plus.",
+    "Why did the student eat his homework? Because the teacher said it was a piece of cake!",
+    "What do you call a dinosaur that is sleeping? A dino-snore!",
+    "Why did the orange stop running? Because he ran out of juice!",
+    "What do you call a crocodile detective? An investi-gator!",
+    "Why did the crayon quit? He was tired of drawing the line.",
+    "What do you call a ghost's true love? His ghoul-friend!",
+    "Why did the elevator break down? It had its ups and downs.",
+    "What do you call a cow with no legs? Ground beef!",
+    "Why did the belt go to jail? For public waisting!",
+    "What do you call a sheep with no legs? A cloud!",
+    "Why did the broom get a bad grade? It was always sweeping things under the rug!",
+    "What do you call a fish made of peanut butter? A peanut butter and jelly fish!",
+    "Why did the chicken cross the playground? To get to the other slide!",
+    "What do you call a car with no wheels? An immobile!",
+    "Why did the computer go to therapy? It had too many issues!",
+    "What do you call a door that can't close? A door that's ajar!",
+    "Why did the music teacher go to jail? For treble-ing his students!",
+    "What do you call a rabbit detective? A hare-y investigator!",
+    "Why did the painter go to jail? He was framed!",
+    "What do you call a fake alligator? A crocodile!",
+    "Why did the snowman name his dog 'Frost'? Because bites!",
+    "What do you call a sad pepper? A melancholy!",
+    "Why did the fly fly? Because the spider spied her!",
+    "What do you call a smart phone? A wise device!",
+    "Why did the golfer wear colorful pants? He wanted to have a good fairway!"
 ]
 
 def handle(comment):
-    if "!joke" in comment.body.lower():
+    body = comment.body.strip().lower()
+    if body == "!joke":
         comment.reply(random.choice(jokes))
