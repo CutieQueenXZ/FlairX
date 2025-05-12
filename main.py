@@ -19,7 +19,7 @@ def main():
     print(f"Bot started in r/{os.getenv('SUBREDDIT')}...")
     for comment in subreddit.stream.comments(skip_existing=True):
         try:
-            handle_fun_command(comment)
+            handle_commands(comment)
         except Exception as e:
             print(f"Error handling comment {comment.id}: {e}")
 
