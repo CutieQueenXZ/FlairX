@@ -6,11 +6,11 @@ from commands.fun import handle_fun_command
 load_dotenv()
 
 reddit = praw.Reddit(
-    client_id=os.getenv("CLIENT_ID"),
-    client_secret=os.getenv("CLIENT_SECRET"),
-    username=os.getenv("USERNAME"),
-    password=os.getenv("PASSWORD"),
-    user_agent=os.getenv("USER_AGENT"),
+    client_id=os.getenv("REDDIT_CLIENT_ID"),
+    client_secret=os.getenv("REDDIT_CLIENT_SECRET"),
+    user_agent=os.getenv("REDDIT_USER_AGENT"),
+    username=os.getenv("REDDIT_USERNAME"),
+    password=os.getenv("REDDIT_PASSWORD")
 )
 
 subreddit = reddit.subreddit(os.getenv("SUBREDDIT"))
