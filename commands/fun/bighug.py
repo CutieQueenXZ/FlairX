@@ -15,22 +15,6 @@ HUG_LINES = [
     "Sending you a super snuggly hug!",
     "Here's a hug filled with good vibes!",
     "Think of this as a warm embrace.",
-    "A hug to make everything feel a little better.",
-    "You're getting a big squeeze right now!",
-    "Sending you a hug that lasts all day!",
-    "Imagine a warm hug just for you.",
-    "A virtual hug to chase away the blues.",
-    "Consider yourself hugged and loved!",
-    "Here's a hug as warm as the sun!",
-    "Sending you a hug that knows no distance.",
-    "A cozy hug to make you smile.",
-    "You've been hugged by the internet!",
-    "May this hug bring you comfort.",
-    "Sending a hug with extra warmth!",
-    "Here's a hug to make your day sweeter!",
-    "Imagine a soft and gentle hug.",
-    "A virtual hug just because!",
-    "You're getting a big, comforting hug!"
 ]
 
 def handle(comment):
