@@ -1,4 +1,4 @@
-from commands.fun import joke, rizz, coinflip, eightball, hug, meme, dog, cat, bighug
+from commands.fun import joke, rizz, coinflip, eightball, hug, meme, cat, bighug
 from commands.utility import help, website
 from commands.facts import catfacts, fact
 
