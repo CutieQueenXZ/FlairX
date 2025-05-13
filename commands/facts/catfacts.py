@@ -57,5 +57,6 @@ CAT_FACTS = [
 def handle(comment):
     body = comment.body.lower()
     if body.startswith("!catfacts"):
+        print("catfacts command triggered")  # Add this line
         fact = random.choice(CAT_FACTS)
         comment.reply(f"**Cat Fact:** {fact}")
