@@ -1,4 +1,4 @@
-from . import dog, cat, birb
+from . import dog, cat, birb, frog
 
 COMMAND_MODULES = [dog, cat, birb, frog]
 
