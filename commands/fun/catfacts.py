@@ -1,6 +1,6 @@
 import requests
 
-def handle_commands(comment):
+def handle(comment):
     body = comment.body.lower()
     if body.startswith("!catfacts"):
         print("Received !catfacts command")
