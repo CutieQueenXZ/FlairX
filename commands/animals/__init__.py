@@ -1,6 +1,6 @@
-from . import dog, cat, birb, frog
+from . import dog, cat, birb, frog, duck
 
-COMMAND_MODULES = [dog, cat, birb, frog]
+COMMAND_MODULES = [dog, cat, birb, frog, duck]
 
 def handle_commands(comment):
     for module in COMMAND_MODULES:
