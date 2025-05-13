@@ -1,16 +1,83 @@
-import requests
+import random
+
+CAT_FACTS = [
+    "Cats have five toes on their front paws, but only four on the back ones.",
+    "A group of cats is called a clowder.",
+    "Cats sleep for 70% of their lives.",
+    "A house cat’s genome is 95.6 percent tiger.",
+    "The oldest known pet cat was found in a 9,500-year-old grave on Cyprus.",
+    "Cats can rotate their ears 180 degrees.",
+    "A cat's purr vibrates at a frequency of 25 to 150 Hertz, which is the same frequency used in therapeutic ultrasound to promote tissue repair.",
+    "Cats can make over 100 different sounds, while dogs can only make about 10.",
+    "The clavicle (collarbone) in a cat is a 'floating' bone that isn't attached to the other bones, allowing them to squeeze through very small spaces.",
+    "Each cat's nose print is unique, just like human fingerprints.",
+    "Cats have whiskers on their wrists, above their eyes, and on their chin, which help them navigate and sense their surroundings.",
+    "The average lifespan of an outdoor cat is about 5 years, while indoor cats can live 12-15 years or longer.",
+    "The heaviest cat on record weighed 46 pounds.",
+    "The richest cat in the world, according to Guinness World Records, inherited $13 million.",
+    "Ancient Egyptians revered cats and even mummified them.",
+    "In ancient Egypt, killing a cat was punishable by death.",
+    "The first cat in space was a French cat named Félicette in 1963.",
+    "Isaac Newton is said to have invented the cat door.",
+    "Cats have a specialized 'Jacobson's organ' in their mouths that allows them to 'taste-smell' the air.",
+    "Cats can jump up to six times their height.",
+    "A cat's tail helps them balance.",
+    "Declawing a cat is illegal in many countries.",
+    "Cats can see in near darkness, but their color vision is limited.",
+    "The third eyelid, or nictitating membrane, is a protective layer that can sometimes be seen in the corner of a cat's eye.",
+    "Some cats are polydactyl, meaning they have more than the usual number of toes.",
+    "The Manx cat breed is known for having no tail or a very short tail.",
+    "The Scottish Fold cat's ears fold forward due to a genetic mutation.",
+    "The Sphynx cat breed is known for its lack of fur.",
+    "The Maine Coon is one of the largest domestic cat breeds.",
+    "The Persian cat is known for its long, luxurious fur.",
+    "The Siamese cat is one of the oldest and most distinctive cat breeds.",
+    "Cats often groom themselves to regulate their body temperature and keep their fur clean.",
+    "Kneading, also known as 'making biscuits,' is a behavior that kittens exhibit to stimulate milk flow from their mother.",
+    "Cats bury their waste to cover their scent from predators and mark their territory.",
+    "A cat's sense of smell is about 14 times stronger than a human's.",
+    "Cats can detect subtle changes in air pressure, which may help them predict the weather.",
+    "Many cats are lactose intolerant and should not be given cow's milk.",
+    "Chocolate is toxic to cats.",
+    "Lilies are highly toxic to cats and can cause kidney failure.",
+    "On average, cats spend about two-thirds of every day sleeping.",
+    "Cats have rough tongues covered in tiny barbs called papillae, made of keratin.",
+    "These papillae help them groom themselves and grip prey.",
+    "Cats can be right-pawed or left-pawed, just like humans.",
+    "Male cats are called toms, female cats are called queens, and baby cats are called kittens.",
+    "A female cat can have more than one litter of kittens per year.",
+    "The gestation period for a cat is about 63 days.",
+    "Cats typically have between 4 and 6 kittens in a litter.",
+    "The world's oldest cat on record lived to be 38 years and 3 days old.",
+    "Cats can get tapeworms from swallowing fleas during grooming.",
+    "Toxoplasmosis is a parasitic disease that cats can carry.",
+    "Cats can suffer from hairballs when they swallow too much fur during grooming.",
+    "Regular brushing can help reduce hairballs in cats.",
+    "Some cats enjoy playing with water, while others avoid it at all costs.",
+    "Cats often rub against people to mark them with their scent.",
+    "The scent glands on a cat's face, paws, and tail release pheromones.",
+    "Purring is not always a sign of happiness; cats also purr when they are injured or stressed.",
+    "Some studies suggest that owning a cat can reduce stress and anxiety in humans.",
+    "Cats are crepuscular animals, meaning they are most active at dawn and dusk.",
+    "The 'zoomies' are sudden bursts of energy that cats often experience.",
+    "Cats have excellent hearing and can detect a wide range of frequencies.",
+    "They can hear higher frequencies than dogs or humans.",
+    "Cats use meows to communicate with humans; they rarely meow at other cats.",
+    "Hissing and spitting are defensive vocalizations in cats.",
+    "A 'blinky slow gaze' from a cat is often a sign of affection and trust.",
+    "Cats often bring their owners 'gifts' like dead mice or birds as a sign of their hunting prowess or affection.",
+    "The way a cat holds its tail can indicate its mood.",
+    "A twitching tail can mean a cat is agitated or focused.",
+    "A puffed-up tail indicates fear or aggression.",
+    "A question mark-shaped tail can mean a cat is feeling playful or curious.",
+    "Cats have a strong sense of territory and will mark it with urine, feces, and scent glands.",
+    "Scratching is a natural behavior for cats that helps them shed the outer layer of their claws and mark their territory.",
+    "Providing scratching posts can help redirect this behavior from furniture.",
+    "Playing with cats helps them stay physically and mentally stimulated."
+]
 
 def handle(comment):
     body = comment.body.lower()
     if body.startswith("!catfacts"):
-        print("Received !catfacts command")
-        try:
-            response = requests.get("https://catfact.ninja/fact")
-            data = response.json()
-            fact = data.get("fact", "Couldn't fetch a cat fact right now.")
-            print("Cat Fact:", fact)
-
-            comment.reply(f"**Random Cat Fact:**\n\n{fact}")
-        except Exception as e:
-            print("CATFACTS error:", e)
-            comment.reply("Oops! Something went wrong while fetching a cat fact.")
+        fact = random.choice(CAT_FACTS)
+        comment.reply(f"**Random Cat Fact:**\n\n{fact}")
