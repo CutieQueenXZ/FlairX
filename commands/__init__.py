@@ -5,7 +5,7 @@ from commands.animals import cat, dog
 from commands.basic import hello
 def handle_commands(comment):
     for module in [joke, rizz, fact, coinflip, eightball, hug, bighug, meme,
-                   help, website, catfacts, cat, dog, hello, ping, reverse
+                   help, website, catfacts, cat, dog, hello, ping, reverse,
                    choose]:
         try:
             module.handle(comment)
