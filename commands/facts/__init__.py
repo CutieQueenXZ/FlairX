@@ -1,6 +1,6 @@
-from . import fact, catfacts, dogfacts
+from . import fact, catfacts
 
-COMMAND_MODULES = [fact, catfacts, dogfacts]
+COMMAND_MODULES = [fact, catfacts]
 
 def handle_commands(comment):
     body = comment.body.lower()
