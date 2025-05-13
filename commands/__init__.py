@@ -5,4 +5,7 @@ from commands.facts import catfacts, fact
 def handle_commands(comment):
     for module in [joke, rizz, fact, coinflip, eightball, hug, bighug, meme,
                    help, website, catfacts, cat]:
-        module.handle(comment)
+        try:
+            module.handle(comment)
+        except Exception as e:
+            print(f"[root] Error handling {module.__name__}: {e}")
