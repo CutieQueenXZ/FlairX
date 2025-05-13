@@ -1,17 +1,57 @@
-import requests
+import random
+
+DOG_IMAGES = [
+    "https://images.dog.ceo/breeds/shiba/shiba-13.jpg",
+    "https://images.dog.ceo/breeds/labrador/n02099712_685.jpg",
+    "https://images.dog.ceo/breeds/husky/n02110185_1469.jpg",
+    "https://images.dog.ceo/breeds/beagle/n02088364_11136.jpg",
+    "https://images.dog.ceo/breeds/pug/n02110958_15452.jpg",
+    "https://www.nationalgeographic.com/content/dam/animals/thumbs/rights-exempt/mammals/d/domestic-dog_thumb.jpg",
+    "https://vetstreet.brightspotcdn.com/dims4/default/54186d0/2147483647/thumbnail/590x420/quality/90/?url=https%3A%2F%2Fvetstreet-brightspot.s3.amazonaws.com%2F40%2F58%2F3bc5c01c4cdb8a0581681831faa9%",
+    "http://www.dogbazar.org/wp-content/uploads/2014/09/british-bull-dog-puppies.jpg",
+    "https://s3.amazonaws.com/cdn-origin-etr.akc.org/wp-content/uploads/2017/11/13001815/Alaskan-Malamute-On-White-03-400x267.jpg",
+    "http://r.ddmcdn.com/w_830/s_f/o_1/cx_20/cy_1463/cw_2528/ch_1422/APL/uploads/2014/11/puppy-cam-veer-.jpg",
+    "https://media2.s-nbcnews.com/i/newscms/2016_43/1170500/hotdog-taco-dog-today-161029-tease_845d920c7ea63371a9bf48203d22036f.jpg",
+    "https://s.hswstatic.com/gif/dog-9.jpg",
+    "https://cdn.vox-cdn.com/thumbor/p0iNC-9SOsw9bc-DWA5IHw0VGoQ=/0x0:648x420/1200x800/filters:focal(273x159:375x261):no_upscale()/cdn.vox-cdn.com",
+    "https://lookaside.fbsbx.com/lookaside/crawler/media/?media_id=1443900315852048",
+    "https://upload.wikimedia.org/wikipedia/commons/thumb/6/69/Dog_morphological_variation.png/300px-Dog_morphological_variation.png",
+    "https://postmediacanoe.files.wordpress.com/2018/04/blacklab1000.jpg",
+    "https://www.nationalgeographic.com/content/dam/animals/thumbs/rights-exempt/mammals/d/domestic-dog_thumb.jpg",
+    "https://vetstreet.brightspotcdn.com/dims4/default/54186d0/2147483647/thumbnail/590x420/quality/90/?url=https%3A%2F%2Fvetstreet-brightspot.s3.amazonaws.com%2F40%2F58%2F3bc5c01c4cdb8a0581681831faa9%",
+    "http://www.dogbazar.org/wp-content/uploads/2014/09/british-bull-dog-puppies.jpg",
+    "https://s3.amazonaws.com/cdn-origin-etr.akc.org/wp-content/uploads/2017/11/13001815/Alaskan-Malamute-On-White-03-400x267.jpg",
+    "http://r.ddmcdn.com/w_830/s_f/o_1/cx_20/cy_1463/cw_2528/ch_1422/APL/uploads/2014/11/puppy-cam-veer-.jpg",
+    "https://media2.s-nbcnews.com/i/newscms/2016_43/1170500/hotdog-taco-dog-today-161029-tease_845d920c7ea63371a9bf48203d22036f.jpg",
+    "https://s.hswstatic.com/gif/dog-9.jpg",
+    "https://cdn.vox-cdn.com/thumbor/p0iNC-9SOsw9bc-DWA5IHw0VGoQ=/0x0:648x420/1200x800/filters:focal(273x159:375x261):no_upscale()/cdn.vox-cdn.com",
+    "https://lookaside.fbsbx.com/lookaside/crawler/media/?media_id=1443900315852048",
+    "https://upload.wikimedia.org/wikipedia/commons/thumb/6/69/Dog_morphological_variation.png/300px-Dog_morphological_variation.png",
+    "https://postmediacanoe.files.wordpress.com/2018/04/blacklab1000.jpg",
+    "https://images.dog.ceo/breeds/ovcharka-caucasian/IMG_20190528_194200.jpg",
+    "https://images.dog.ceo/breeds/rajapalayam-indian/Rajapalayam-dog.jpg",
+    "https://images.dog.ceo/breeds/terrier-silky/n02097658_3207.jpg",
+    "https://images.dog.ceo/breeds/husky/n02110185_353.jpg",
+    "https://images.dog.ceo/breeds/germanshepherd/n02106662_2740.jpg",
+    "https://cdn.thedogapi.com/images/Hylo4Snaf.jpeg",
+    "http://78.media.tumblr.com/2bc94b9eec2d00f5d28110ba191da896/tumblr_nyled8DYKd1qg9kado1_1280.jpg",
+    "https://images.dog.ceo/breeds/cockapoo/Scout.jpg",
+    "https://images.dog.ceo/breeds/spaniel-cocker/n02102318_5690.jpg",
+    "https://www.nationalgeographic.com/content/dam/animals/thumbs/rights-exempt/mammals/d/domestic-dog_thumb.jpg",
+    "https://vetstreet.brightspotcdn.com/dims4/default/54186d0/2147483647/thumbnail/590x420/quality/90/?url=https%3A%2F%2Fvetstreet-brightspot.s3.amazonaws.com%2F40%2F58%2F3bc5c01c4cdb8a0581681831faa9%",
+    "http://www.dogbazar.org/wp-content/uploads/2014/09/british-bull-dog-puppies.jpg",
+    "https://s3.amazonaws.com/cdn-origin-etr.akc.org/wp-content/uploads/2017/11/13001815/Alaskan-Malamute-On-White-03-400x267.jpg",
+    "http://r.ddmcdn.com/w_830/s_f/o_1/cx_20/cy_1463/cw_2528/ch_1422/APL/uploads/2014/11/puppy-cam-veer-.jpg",
+    "https://media2.s-nbcnews.com/i/newscms/2016_43/1170500/hotdog-taco-dog-today-161029-tease_845d920c7ea63371a9bf48203d22036f.jpg",
+    "https://s.hswstatic.com/gif/dog-9.jpg",
+    "https://cdn.vox-cdn.com/thumbor/p0iNC-9SOsw9bc-DWA5IHw0VGoQ=/0x0:648x420/1200x800/filters:focal(273x159:375x261):no_upscale()/cdn.vox-cdn.com",
+    "https://lookaside.fbsbx.com/lookaside/crawler/media/?media_id=1443900315852048",
+    "https://upload.wikimedia.org/wikipedia/commons/thumb/6/69/Dog_morphological_variation.png/300px-Dog_morphological_variation.png",
+    "https://postmediacanoe.files.wordpress.com/2018/04/blacklab1000.jpg",
+]
 
 def handle(comment):
     body = comment.body.lower()
     if body.startswith("!dog"):
-        print("Received !dog command")
-        try:
-            response = requests.get("https://dog.ceo/api/breeds/image/random")
-            data = response.json()
-            image_url = data.get("message", "")
-            print("Dog image URL:", image_url)
-
-            # Add more context to avoid Reddit filtering the reply
-            comment.reply(f"**Woof!** Here's a cute dog for you:\n\n{image_url}")
-        except Exception as e:
-            print("DOG error:", e)
-            comment.reply("Oops! Couldn't fetch a dog image right now.")
+        image_url = random.choice(DOG_IMAGES)
+        comment.reply(f"**Woof!** Here's a cute dog for you:\n\n{image_url}")
