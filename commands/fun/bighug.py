@@ -21,7 +21,7 @@ def handle(comment):
     body = comment.body.lower()
     if body.startswith("!bighug"):
         hug_line = random.choice(HUG_LINES)
-        comment.reply(f"**{hug_line}**")
+        comment.reply(f"**{hug_lines}**")
 
 # Optional: You might want to define a 'command_name' for dynamic help generation
 command_name = "bighug"
