@@ -4,5 +4,5 @@ from commands.facts import catfacts, fact
 
 def handle_commands(comment):
     for module in [joke, rizz, fact, coinflip, eightball, hug, meme,
-                   help, website, catfacts, fact]:
+                   help, website, fact]:
         module.handle(comment)
