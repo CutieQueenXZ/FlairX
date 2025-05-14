@@ -1,6 +1,6 @@
-from . import chatgpt
+from . import gemini
 
-COMMAND_MODULES = [chatgpt]
+COMMAND_MODULES = [gemini]
 
 def handle_commands(comment):
     for module in COMMAND_MODULES:
