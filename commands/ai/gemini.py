@@ -5,7 +5,7 @@ GEMINI_API_KEY = os.getenv("GEMINI_API_KEY")  # or set manually
 
 genai.configure(api_key=GEMINI_API_KEY)
 
-model = genai.GenerativeModel("models/gemini-pro")  # full model path
+model = genai.GenerativeModel("gemini-pro")  # full model path
 
 def handle(comment):
     body = comment.body
