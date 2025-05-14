@@ -1,6 +1,6 @@
-from . import areyouokay, really-725
+from . import areyouokay, really725
 
-COMMAND_MODULES = [areyouokay, really-725]
+COMMAND_MODULES = [areyouokay, really725]
 
 def handle_commands(comment):
     for module in COMMAND_MODULES:
