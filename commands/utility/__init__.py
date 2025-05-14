@@ -1,5 +1,5 @@
-from . import help, website, weather, chatgpt
+from . import help, website, weather
 
 def handle_commands(comment):
-    for module in [help, website, weather, chatgpt]:
+    for module in [help, website, weather]:
         module.handle(comment)
