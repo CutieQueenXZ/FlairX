@@ -1,6 +1,6 @@
-from . import hello
+from . import hello, define
 
-COMMAND_MODULES = [hello]
+COMMAND_MODULES = [hello, define]
 
 def handle(comment):
     body = comment.body.lower()
