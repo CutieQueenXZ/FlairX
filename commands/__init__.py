@@ -8,7 +8,7 @@ def handle_commands(comment):
     for module in [joke, rizz, fact, coinflip, eightball, hug, bighug, meme,
                    help, website, catfacts, cat, dog, hello, ping, reverse,
                    choose, motivate, compliment, insult, dadjoke, birb, frog, duck,
-                   weather, truth, dare, gemini, fliptext, howgay, ship, quote
+                   weather, truth, dare, gemini, fliptext, howgay, ship, quote,
                    whoami]:
         try:
             module.handle(comment)
