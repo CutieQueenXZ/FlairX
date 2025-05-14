@@ -1,4 +1,4 @@
 praw
 requests
 python-dotenv
-openai==0.28
+google-generativeai
