@@ -13,10 +13,13 @@ reddit = praw.Reddit(
     password=os.getenv("REDDIT_PASSWORD")
 )
 
-subreddit = reddit.subreddit(os.getenv("SUBREDDIT"))
+# Support multiple subreddits like "funny,memes,test"
+subreddits_env = os.getenv("SUBREDDITS", "")
+subreddits = "+".join(s.strip() for s in subreddits_env.split(",") if s.strip())
+subreddit = reddit.subreddit(subreddits)
 
 def main():
-    print(f"Bot started in r/{os.getenv('SUBREDDIT')}...")
+    print(f"Bot started in r/{subreddits}...")
     for comment in subreddit.stream.comments(skip_existing=True):
         try:
             handle_commands(comment)
