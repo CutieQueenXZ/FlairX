@@ -1,25 +1,24 @@
 import google.generativeai as genai
 import os
 
-# Load Gemini API key from environment variable
-genai.configure(api_key=os.getenv("GEMINI_API_KEY"))
+GEMINI_API_KEY = os.getenv("GEMINI_API_KEY")  # or hardcode for testing
+
+genai.configure(api_key=GEMINI_API_KEY)
+
+model = genai.GenerativeModel("gemini-pro")
 
 def handle(comment):
-    body = comment.body.strip()
-
-    if body.lower().startswith("!gemini "):
-        prompt = body[len("!gemini "):].strip()
+    body = comment.body.lower()
+    if body.startswith("!gemini"):
+        prompt = comment.body[len("!gemini"):].strip()
 
         try:
-            model = genai.GenerativeModel("gemini-pro")
             response = model.generate_content(prompt)
             reply_text = response.text.strip()
-
-            # Limit reply length to avoid Reddit limits
-            if len(reply_text) > 1900:
-                reply_text = reply_text[:1900] + "..."
-
-            comment.reply(f"**Gemini says:**\n\n{reply_text}")
+            if not reply_text:
+                reply_text = "Gemini didn't return any content."
         except Exception as e:
-            print(f"Gemini error: {e}")
-            comment.reply("Sorry, something went wrong while contacting Gemini.")
+            print("Gemini error:", e)
+            reply_text = "Sorry, something went wrong while contacting Gemini."
+
+        comment.reply(reply_text)
