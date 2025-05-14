@@ -36,6 +36,10 @@ def handle(comment):
             "`!catfacts` — Random cat fact\n"
             "`!fact` — Random general fact\n\n"
 
+            "a̵̟̿̓r̸̝̻̀e̸̪̒̇ ̶̡͔͠ỹ̷̞ȍ̸̙u̴̩̔̄ ̵̫̂̓o̴͔̓̌k̷̼̣͑̚a̷̟͆͊ỳ̵͇"
+            
+            "`!areyouokay"
+            
             "➕ *More features coming soon!*\n"
             "🤖 *Created by u/gamerharun*"
         )
