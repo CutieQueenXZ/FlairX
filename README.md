@@ -1,7 +1,5 @@
-###############################################
 #           FlairX Hosting Tutorial           #
 #        How to run this Reddit bot 24/7      #
-###############################################
 
 This guide will walk you step-by-step through TWO different hosting methods:
 
@@ -11,9 +9,7 @@ This guide will walk you step-by-step through TWO different hosting methods:
 Both options are fully supported. You don’t need coding knowledge, just patience and following the steps carefully.
 
 
-================================================
 =  OPTION 1: Hosting FlairX on RAILWAY (Free)  =
-================================================
 
 Railway is a cloud platform that can run your bot in the background
 without requiring UptimeRobot or extra tricks. It’s the easiest way.
@@ -76,9 +72,7 @@ STEP 7: Keep it alive
 - OR switch to Replit temporarily (see below)
 
 
-===============================================
 =  OPTION 2: Hosting FlairX on REPLIT (Free)  =
-===============================================
 
 Replit doesn’t keep bots alive on its own. 
 You’ll need to use a “keep_alive.py” file + UptimeRobot.
@@ -154,9 +148,7 @@ STEP 8: Done
 - No downtime unless Replit restarts or has issues
 
 
-===============================================
 =                Final Notes                   =
-===============================================
 
 - RAILWAY: simpler, no UptimeRobot needed, but free plan = 500 hrs
 - REPLIT: works with free plan + UptimeRobot, can run 24/7
@@ -166,6 +158,5 @@ STEP 8: Done
 - Keep your repo clean so others can easily fork + host
 
 
-###############################################
 # End of Tutorial — Good luck with FlairX!     #
-###############################################
+
