@@ -3,7 +3,7 @@ from commands.utility import help, website, weather
 from commands.facts import catfacts, fact
 from commands.animals import cat, dog, birb, frog, duck
 from commands.basic import hello, define, quote, whoami
-from commands.ai import gemini, ask-gemini
+from commands.ai import gemini, askgemini
 from commands.as182 import areyouokay, really725
 def handle_commands(comment):
     for module in [joke, rizz, fact, coinflip, eightball, hug, bighug, meme,
