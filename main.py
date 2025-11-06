@@ -1,16 +1,19 @@
 # main.py
 import os
+import time
 import praw
 from dotenv import load_dotenv
 from commands import handle_commands
 from keep_alive import keep_alive
+from praw.exceptions import APIException, RedditAPIException, PRAWException
 
+# 🧠 Load environment variables
 load_dotenv()
 
-# Start the small Flask webserver so UptimeRobot can ping it
+# 🌐 Keep-alive webserver (for Replit/UptimeRobot)
 keep_alive()
 
-# Reddit authentication
+# 🦾 Reddit authentication
 reddit = praw.Reddit(
     client_id=os.getenv("REDDIT_CLIENT_ID"),
     client_secret=os.getenv("REDDIT_CLIENT_SECRET"),
@@ -19,28 +22,42 @@ reddit = praw.Reddit(
     password=os.getenv("REDDIT_PASSWORD")
 )
 
-# Support multiple subreddits like "funny,memes,test"
+# 🎯 Subreddits (comma-separated in .env)
 subreddits_env = os.getenv("SUBREDDITS", "FoundBob")
 subreddits = "+".join(s.strip() for s in subreddits_env.split(",") if s.strip())
 subreddit = reddit.subreddit(subreddits)
 
-def main():
-    print(f"🤖 FlairX bot started in r/{subreddits}...")
-import time
 
 def main():
-    print(f"Bot started in r/{subreddits}...")
+    print(f"🤖 FlairX bot started in r/{subreddits}...")
     last_seen = set()
+
     while True:
         try:
-            for comment in subreddit.comments(limit=10):
+            # 💬 Fetch the latest comments
+            for comment in subreddit.comments(limit=25):
                 if comment.id not in last_seen:
                     last_seen.add(comment.id)
+
+                    # Skip your own bot comments (avoid loops)
+                    if comment.author and comment.author.name.lower() == os.getenv("REDDIT_USERNAME", "").lower():
+                        continue
+
                     handle_commands(comment)
+
+            # ⏱️ Avoid hitting Reddit’s API limits
             time.sleep(10)
+
+        except (APIException, RedditAPIException) as e:
+            print(f"⚠️ Reddit API exception: {e}")
+            time.sleep(60)
+        except PRAWException as e:
+            print(f"⚙️ PRAW exception: {e}")
+            time.sleep(30)
         except Exception as e:
-            print(f"Error handling comment: {e}")
-            time.sleep(5)
-            
+            print(f"❌ Unexpected error: {e}")
+            time.sleep(10)
+
+
 if __name__ == "__main__":
     main()
