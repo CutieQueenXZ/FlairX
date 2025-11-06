@@ -1,4 +1,4 @@
-#           FlairX Hosting Tutorial           #
+#           FlairX Hosting Tutorial(old guide, please dont try it again)           #
 #        How to run this Reddit bot 24/7      #
 
 This guide will walk you step-by-step through TWO different hosting methods:
