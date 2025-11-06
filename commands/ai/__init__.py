@@ -1,6 +1,6 @@
 from . import gemini
 
-COMMAND_MODULES = [gemini, ask-gemini]
+COMMAND_MODULES = [gemini, askgemini]
 
 def handle_commands(comment):
     for module in COMMAND_MODULES:
