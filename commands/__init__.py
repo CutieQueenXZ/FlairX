@@ -1,4 +1,4 @@
-from commands.fun import joke, rizz, coinflip, eightball, hug, meme, bighug, ping, reverse, choose, motivate, compliment, insult, dadjoke, truth, dare, fliptext, howgay, ship
+from commands.fun import joke, rizz, coinflip, eightball, hug, meme, bighug, ping, reverse, choose, motivate, compliment, insult, dadjoke, truth, dare, fliptext, howgay, ship, uwuify
 from commands.utility import help, website, weather
 from commands.facts import catfacts, fact
 from commands.animals import cat, dog, birb, frog, duck
