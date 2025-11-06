@@ -51,3 +51,12 @@ def handle_mention(mention, reddit):
     mention.reply(reply)
     mark_replied(mention.id)
     print(f"✅ Replied to mention {mention.id}")
+
+def handle_mention(comment, reddit):
+    """Handle mentions like u/FlairXish --post explain this --creative"""
+
+    body = comment.body.lower()
+
+    # 🛑 Only respond if the bot is explicitly mentioned
+    if "u/flairxish" not in body:
+        return
