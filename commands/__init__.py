@@ -10,7 +10,7 @@ def handle_commands(comment):
                    help, website, catfacts, cat, dog, hello, ping, reverse,
                    choose, motivate, compliment, insult, dadjoke, birb, frog, duck,
                    weather, truth, dare, gemini, fliptext, howgay, ship, quote,
-                   whoami, uwuify, areyouokay, really725, ask-gemini, mention_handler]:
+                   whoami, uwuify, areyouokay, really725, askgemini, mention_handler]:
         try:
             module.handle(comment)
         except Exception as e:
